@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const PERSPECTIVE = 1000;
 
@@ -46,13 +45,25 @@ const calcScaleY: (
   return targetRatio / curRatio;
 };
 
-const ResizeFree: React.FC<{
+// TODO LIST
+// 1.type, `100% 100%`  `cover`  `contain` 类似于 background-size属性
+// 2.container, 挂载点
+// 3.比例范围放缩, 超过一定范围出现滚动条或留白
+// 4.expmple中添加几个例子 screen, admin_system
+// 5.完善readMe
+
+interface ResizeFreeProps {
   width: number;
   height: number;
   ratioThreshold?: number;
   className?: string;
-}> = props => {
-  const { width, height, className, children } = props;
+}
+const ResizeFree: React.FC<ResizeFreeProps> = ({
+  width,
+  height,
+  className,
+  children,
+}) => {
   const [translateZ, setTranslateZ] = useState(0);
   const [scaleY, setScaleY] = useState(1);
 
@@ -73,13 +84,15 @@ const ResizeFree: React.FC<{
 
   return (
     <div
-      className={'fix-size-container ' + className}
+      className={
+        className ? 'fix-size-container ' + className : 'fix-size-container'
+      }
       style={{
         perspective: PERSPECTIVE + 'px',
         overflow: 'hidden',
         position: 'relative',
         height: '100vh',
-        width: '100vw',
+        width: '100vw', // TODO 有容器dom 需修改
       }}
     >
       <div
@@ -87,7 +100,7 @@ const ResizeFree: React.FC<{
         style={{
           height,
           width,
-          transform: ` translate(-50%, -50%) translateZ(${translateZ}px) scaleY(${scaleY})`,
+          transform: `translate(-50%, -50%) translateZ(${translateZ}px) scaleY(${scaleY})`,
           position: 'absolute',
           top: '50%',
           left: '50%',
