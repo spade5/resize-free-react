@@ -1,10 +1,11 @@
 {
   "name": "resize-free-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "spade5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "repository": "https://github.com/spade5/resize-free-react.git",
   "files": [
     "dist",
     "src"
@@ -46,6 +47,9 @@
       "limit": "10 KB"
     }
   ],
+  "publishConfig": {
+    "registry":"https://registry.npmjs.org"
+  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.3",
     "@types/react": "^17.0.20",
