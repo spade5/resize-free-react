@@ -48,7 +48,7 @@
     }
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "spade5:registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.3",
