@@ -59,7 +59,7 @@ enum LayoutType {
 interface ResizeFreeProps {
   width: number; //容器的固定宽度
   height: number; //容器的固定高度
-  layout: LayoutType;
+  layout?: LayoutType; 
   ratioThreshold?: number | number[]; // 20% []
   className?: string;
 }
@@ -68,7 +68,9 @@ const ResizeFree: React.FC<ResizeFreeProps> = ({
   height,
   className,
   children,
+  layout = LayoutType.extend
 }) => {
+  console.log(layout)
   const [translateZ, setTranslateZ] = useState(0);
   const [scaleY, setScaleY] = useState(1);
 
