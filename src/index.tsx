@@ -52,10 +52,15 @@ const calcScaleY: (
 // 4.expmple中添加几个例子 screen, admin_system
 // 5.完善readMe
 
+enum LayoutType {
+  extend = 'extend',
+  contain = 'contain',
+}
 interface ResizeFreeProps {
-  width: number;
-  height: number;
-  ratioThreshold?: number;
+  width: number; //容器的固定宽度
+  height: number; //容器的固定高度
+  layout: LayoutType;
+  ratioThreshold?: number | number[]; // 20% []
   className?: string;
 }
 const ResizeFree: React.FC<ResizeFreeProps> = ({
@@ -78,6 +83,7 @@ const ResizeFree: React.FC<ResizeFreeProps> = ({
   }, [resize]);
 
   useEffect(() => {
+    // TODO dom resize => MutationObserver(IE11)  ResizeObserver(不兼容IE11)
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
   }, [resize]);

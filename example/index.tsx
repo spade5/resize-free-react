@@ -4,6 +4,12 @@ import * as ReactDOM from 'react-dom';
 import ResizeFree from '../dist/index';
 import './index.css'
 
+// TODO
+// 1. ROUTER
+// 2. SCREEN 1920 * 1080 screen_demo
+// 3. 套上ResizeFree的效果
+// 4. 比较scaleX scaleY 与 perspective + scaleY 的区别
+// 5. 非body内嵌demo
 const App = () => {
   return (
     <div>
