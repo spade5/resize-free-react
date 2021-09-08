@@ -4,5 +4,21 @@
 todo
 
 ## 用法
+```
+npm i resize-free-react
+
+#or
+
+yarn add resize-free-react
+```
+
+```jsx
+import ResizeFree from 'resize-free-react'
+const App = () => {
+    return <ResizeFree width={1920} height={1080}>
+    ...your content here...
+    </ResizeFree>
+}
+```
 
 ## example跳转
